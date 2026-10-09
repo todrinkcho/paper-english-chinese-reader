@@ -1,0 +1,17 @@
+# Python noise
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Intermediate working folders produced by extract.py (e.g. DFCBA_pbr/)
+*_pbr/
+
+# Generated readers / glossaries (keep the repo clean; they are large)
+*-bilingual.html
+*-glossary.csv
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

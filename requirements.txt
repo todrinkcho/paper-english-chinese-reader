@@ -1,0 +1,10 @@
+# paper-bilingual-reader 运行依赖（只有两个，都很轻）
+#
+# 安装：
+#   pip install -r requirements.txt
+#
+# PyMuPDF 用于解析 PDF 的文本块、字体、bbox，并渲染图表 / 公式 / 原页图片。
+# Pillow  用于裁白边和图片压缩。
+
+pymupdf>=1.23.0
+pillow>=9.0.0
