@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""paper-bilingual-reader / reflow
+"""paper-english-chinese-reader / reflow
 Re-run only the reading-order step on an existing blocks.json, keeping every
 block id and its bbox intact. Translations live in tr/*.json keyed by id, so
 they survive; no retranslation is needed.

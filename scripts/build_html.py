@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""paper-bilingual-reader / step 3
+"""paper-english-chinese-reader / step 3
 blocks.json + translations -> single-file bilingual HTML reader
 """
 from __future__ import annotations

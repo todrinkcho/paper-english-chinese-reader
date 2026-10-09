@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""paper-bilingual-reader / step 4
+"""paper-english-chinese-reader / step 4
 glossary.json -> CSV (UTF-8 with BOM so Excel opens Chinese correctly)
 """
 from __future__ import annotations

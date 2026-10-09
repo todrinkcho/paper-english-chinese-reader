@@ -1,7 +1,31 @@
-# paper-bilingual-reader
+# paper-english-chinese-reader
 
 把英文文献 PDF 做成**左英右中、可同步滚动、可划重点**的单文件 HTML 双语阅读器，
 并输出中英术语表 CSV。为「反复要读英文文献」的人做的，一次配好，之后每篇文献一条命令。
+
+> **方向：英文 → 中文（单向）。**
+> 名字里写得这么死是有原因的：它只测过英文原文，也只产出中文译文。
+> 拿一篇中文论文来跑，你会得到一篇中文译文，毫无意义。原文非英文的话，这个工具不适合你。
+
+<details>
+<summary><b>English (read this first if you don't read Chinese)</b></summary>
+
+This skill converts an **English** academic PDF into a **single-file HTML bilingual reader**:
+English on the left, **Chinese translation** on the right, block-aligned and synced while
+scrolling. It also exports an EN↔ZH glossary CSV.
+
+- **Direction is fixed: English source → Chinese translation.** It has only been tested in
+  that direction. A Chinese source PDF will produce a Chinese translation — useless.
+- The Python scripts do the deterministic work (PDF parsing, ordering, HTML assembly);
+  **your AI does the translation**, so quality depends on the model you use.
+- Output: one self-contained `.html` (images embedded as data URIs) + one glossary `.csv`.
+- Features: synced scroll, side-by-side pairing, 4-color highlighting with notes (saved in
+  localStorage), Markdown export of annotations, and a "view original page" overlay that
+  highlights the current block on a rendered image of the source page.
+
+Requirements: Python 3.9+, `pymupdf`, `pillow`. No API key.
+
+</details>
 
 ```
 paper.pdf  ──►  blocks.json + 图表  ──►  逐块翻译  ──►  单文件双语 HTML + 术语表
@@ -54,14 +78,14 @@ python3 scripts/check_env.py     # 自检，缺什么会直说
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -r paper-bilingual-reader ~/.claude/skills/
+cp -r paper-english-chinese-reader ~/.claude/skills/
 ```
 
 **Codex / OpenClaw**
 
 ```bash
 mkdir -p ~/.agents/skills
-cp -r paper-bilingual-reader ~/.agents/skills/
+cp -r paper-english-chinese-reader ~/.agents/skills/
 ```
 
 **Cursor / 其他支持 `.cursor/rules` 或自定义指令的编辑器**
@@ -76,7 +100,7 @@ cp -r paper-bilingual-reader ~/.agents/skills/
 ## 手动跑（不用 AI 也行，但翻译得自己做）
 
 ```bash
-cd paper-bilingual-reader
+cd paper-english-chinese-reader
 
 # 1. 解析
 python3 scripts/extract.py "C:/abs/path/paper.pdf" -o "C:/abs/path/paper_pbr"
@@ -103,7 +127,7 @@ python3 scripts/build_html.py "C:/abs/path/paper_pbr" -o "C:/abs/path/paper-bili
 ## 目录结构
 
 ```
-paper-bilingual-reader/
+paper-english-chinese-reader/
 ├── SKILL.md                     # 给 AI 看的 workflow（含触发词）
 ├── AGENT_PROMPT.md              # 不支持 skill 的 AI：整段粘贴这份
 ├── README.md                    # 本文件
@@ -131,7 +155,7 @@ paper-bilingual-reader/
 |---|---|
 | 用 Claude Code / Codex / OpenClaw（支持 skill） | 整个文件夹或 zip 发过去，按上面的路径放好，**什么都不用粘** |
 | 用 ChatGPT / 豆包 等纯聊天 AI | 对方先解压到本地，再把 `AGENT_PROMPT.md` **整段粘给 AI**，并告诉它解压后的绝对路径 |
-| AI 能读本地文件（Claude Code / Cursor Agent） | 发 zip 解压即可，直接说「按 paper-bilingual-reader 跑这篇 PDF」 |
+| AI 能读本地文件（Claude Code / Cursor Agent） | 发 zip 解压即可，直接说「按 paper-english-chinese-reader 跑这篇 PDF」 |
 | AI 完全碰不到本地文件（纯网页版） | 跑不了——脚本必须在本地执行，只能让对方自己走「手动跑」那四步 |
 
 **只发 `AGENT_PROMPT.md` 一个文件是不够的**：它只是说明书，真正干活的 `scripts/` 和

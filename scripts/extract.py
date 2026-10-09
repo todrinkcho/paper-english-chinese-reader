@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""paper-bilingual-reader / step 1
+"""paper-english-chinese-reader / step 1
 Turn a PDF into a structured intermediate layer:
     blocks.json  +  assets/*.png (figures)  +  pages/*.jpg (page renders)
 """

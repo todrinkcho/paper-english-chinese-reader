@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""paper-bilingual-reader / step 0
+"""paper-english-chinese-reader / step 0
 Verify the environment before running the pipeline.
 Usage:  python3 check_env.py
 """

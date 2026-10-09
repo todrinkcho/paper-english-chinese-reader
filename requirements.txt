@@ -1,4 +1,4 @@
-# paper-bilingual-reader 运行依赖（只有两个，都很轻）
+# paper-english-chinese-reader 运行依赖（只有两个，都很轻）
 #
 # 安装：
 #   pip install -r requirements.txt
